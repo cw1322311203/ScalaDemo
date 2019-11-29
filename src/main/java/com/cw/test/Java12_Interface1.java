@@ -5,9 +5,6 @@ public class Java12_Interface1 {
         A13 a = new C13();
 
         System.out.println(C13.class.getInterfaces().length);
-        System.out.println(C13.class.getInterfaces().length);
-        System.out.println(C13.class.getInterfaces().length);
-        System.out.println(C13.class.getInterfaces().length);
     }
 }
 
