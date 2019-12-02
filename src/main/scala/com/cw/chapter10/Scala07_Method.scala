@@ -110,10 +110,17 @@ object Scala07_Method {
     println(resultList.mkString(","))
 
     // TODO 扁平化操作
-    val lineList=List("Hello World","Hello Scala","Hello Hadoop")
+    val lineList = List("Hello World", "Hello Scala", "Hello Hadoop")
 
-    lineList.flatMap(x=>x.split(" "))
-    
+    val flatMapList: List[String] = lineList.flatMap(x => x.split(" "))
+
+    val resultList1: List[(String, Int)] = flatMapList.groupBy(word => word).map(t => (t._1, t._2.size)).toList.sortWith((left, right) => {
+      left._2 > right._2
+    })
+    println(resultList1.mkString(","))
+
+
+
 
     /*
     list.reduce()
