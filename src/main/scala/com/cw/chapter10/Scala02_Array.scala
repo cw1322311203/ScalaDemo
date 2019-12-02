@@ -19,6 +19,10 @@ object Scala02_Array {
     // Array可以通过apply方法来创建数组对象
 
     val ints: Array[Int] = Array(1, 2, 3, 4)
+    val arr: Array[Int] = new Array[Int](10)
+    arr(0) = 1
+    arr(1) = 2
+    println(arr.mkString(","))
     // 访问数组 : 使用小括号,增加索引的方式来访问数组
     println(ints(0))
 
@@ -67,24 +71,34 @@ object Scala02_Array {
 
 
     // TODO 可变数组ArrayBuffer
+    // ArrayBuffer是变长数组，类似java的ArrayList
+    // val arr2 = ArrayBuffer[Int]() 也是使用的apply方法构建对象
     val arrayBuffer: ArrayBuffer[Int] = ArrayBuffer(5, 6, 7, 8)
 
     // 查询值
     //println(arrayBuffer(0))
     // 修改值
     //arrayBuffer(0) = 9
+
     // 将数组转换成字符串
     println(arrayBuffer.mkString(","))
+
     // 循环遍历
     // arrayBuffer.foreach(println)
+
     // 向指定的位置增加元素
     // arrayBuffer.insert(1, 9)
     // 在数组最后增加一个数据
     //val buffer: ArrayBuffer[Int] = arrayBuffer += (9)
+
+    //  def append(elems: A*) { appendAll(elems) } 接收的是可变参数.
+    // 每append一次，arr在底层会重新分配空间，进行扩容，arr2的内存地址会发生变化，也就成为新的ArrayBuffer
+    arrayBuffer.append(9)
     // 地址没有发生变化
     //println(arrayBuffer == buffer)
 
-    arrayBuffer.foreach(println)
+    //arrayBuffer.foreach(println)\
+    println(arrayBuffer.mkString(","))
 
     // 删除数据
     // arrayBuffer -= (1)
@@ -98,6 +112,27 @@ object Scala02_Array {
     // TODO 可变数组ArrayBuffer和不可变数组Array的转换
     //val buffer: mutable.Buffer[Int] = ints.toBuffer
     val array: Array[Int] = arrayBuffer.toArray
+
+
+    // TODO 多维数组
+    // 有三个元素[一维数组]
+    val array1 = Array.ofDim[Int](3, 4)
+    array1(1)(1) = 9
+    for (item <- array1) {
+      for (item2 <- item) {
+        print(item2 + "\t")
+      }
+      println()
+    }
+
+    println("===================")
+
+    for (i <- 0 to array1.length - 1) {
+      for (j <- 0 to array1(i).length - 1) {
+        printf("arr[%d][%d]=%d\t", i, j, array1(i)(j))
+      }
+      println()
+    }
 
   }
 }

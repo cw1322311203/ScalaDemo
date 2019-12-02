@@ -48,8 +48,8 @@ object Scala03_Seq {
 
 
     // TODO 特殊List集合 : 空集合Nil
-    println(List())
-    println(Nil)
+    println(List()) // List()
+    println(Nil) // List()
     println(1 :: 2 :: 3 :: Nil)
 
 
@@ -87,17 +87,34 @@ object Scala03_Seq {
 
 
     // TODO 队列(一定可变)
-    val q = mutable.Queue(1,2,3,4)
-    println("add before = "+q)
+    // 队列是一个有序列表，在底层可以用数组或是链表来实现。
+    // 其输入和输出要遵循先入先出的原则。即：先存入队列的数据，要先取出。后存入的要后取出
+    val q = mutable.Queue(1, 2, 3, 4)
+
+    // 返回队列的第一个元素
+    println(q.head) //对队列本身没有任何影响
+
+    // 返回队列最后一个元素
+    println(q.last) //对队列本身没有任何影响
+
+    // 返回队列的尾部
+    // 即：返回除了第一个以外剩余的元素， 可以级联使用，这个在递归时使用较多。
+    println(q.tail)
+    println(q.tail.tail)
+
+    // 添加元素
+    println("add before = " + q)
     q.enqueue(5)
-    println("add after = "+q)
+    println("add after = " + q)
     val i: Int = q.dequeue() // 队列先进先出
-    println("i="+i)
-    println("delete after = "+q)
+    println("i=" + i)
+    // 删除元素
+    println("delete after = " + q)
     q.dequeue()
     q.dequeue()
     q.dequeue()
-    println("delete after = "+q)
+    println("delete after = " + q)
+
 
   }
 }

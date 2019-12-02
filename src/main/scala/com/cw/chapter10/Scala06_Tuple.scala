@@ -11,22 +11,27 @@ object Scala06_Tuple {
     // 元祖中最多的元素数据的个数为22个
     val tuple: (String, Int, String) = ("zhangsan", 11111, "xxxxxx")
 
-    // 访问元祖中的数据,调用相应的顺序编号: _顺序号
-    println(tuple._1)
+    // TODO 访问元祖中的数据,调用相应的顺序编号: _顺序号,也可以通过索引
+    println(tuple._1) // 访问元祖的第一个元素,从1开始
     println(tuple._2)
     println(tuple._3)
+    println(tuple.productElement(0))// 访问元祖的第一个元素,从0开始
 
     // 循环遍历元祖
     for (elem <- tuple.productIterator) {
       println(elem)
     }
 
-    // 如果元祖中元素的个数为2,那么称之为对偶,类似于Map中键值对
+    // TODO 如果元祖中元素的个数为2,那么称之为对偶,类似于Map中键值对
     val tuple1: (Int, String) = (1, "zhangsan")
-    val tupleMap: Map[Int, String] = Map((1,"zhangsan"))
+    val tupleMap: Map[Int, String] = Map((1, "zhangsan"))
 
-    tupleMap.foreach(t=>{println(t)})
-    tupleMap.foreach(t=>{println(t._1+"="+t._2)})
+    tupleMap.foreach(t => {
+      println(t)
+    })
+    tupleMap.foreach(t => {
+      println(t._1 + "=" + t._2)
+    })
   }
 }
 
