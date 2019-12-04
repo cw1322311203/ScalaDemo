@@ -13,5 +13,15 @@ object Scala03_Match1 {
       }
       println(ch + " " + sign + " " + digit)
     }
+
+    // 如果在case关键字后跟变量名，那么match前表达式的值会赋给那个变量
+    val ch = 'V'
+    ch match {
+      case '+' => println("ok~")
+      case mychar => println("ok~" + mychar)
+      case _ => println("ok~~")
+    }
+
+
   }
 }
