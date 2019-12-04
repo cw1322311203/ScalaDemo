@@ -10,6 +10,10 @@ object Scala08_Method1 {
     println(filterList.mkString(","))
 
     // TODO 拉链:Zip
+    // 拉链的本质就是两个集合的合并操作，合并后每个元素是一个 对偶元组。
+    // 如果两个集合个数不对应，会造成数据丢失。
+    // 集合不限于List, 也可以是其它集合比如 Array
+    // 如果要取出合并后的各个对偶元组的数据，可以遍历,取出时，按照元组的方式取出即可
     val list1 = List(1, 2, 3, 7)
     val list2 = List(3, 4, 5, 6)
 

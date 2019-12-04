@@ -58,7 +58,7 @@ object Scala05_Map {
 
     // 方式3-使用map.get(key).get取值
     // 通过 映射.get(键) 这样的调用返回一个Option对象，要么是Some，要么是None
-    // Scala为了防止集合出现空指针问题,提供了一个特殊的类:Option,有两个特殊的对象:Some,None
+    // Scala为了防止集合出现空指针问题,提供了一个特殊的类:Option,有两个特殊的对象:Some(有值),None(无值)
     // 如果确实没有获取到数据,为了不出现异常,Option类提供了有默认值的方法
     println(map.get("b")) // Some(2) 存在为Some,不存在为None
     println(map.get("b").get) // 2
