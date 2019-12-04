@@ -101,6 +101,15 @@ object Scala05_FunctionHell {
     // 以下语句表示f1是一个入口参数是Int,返回值类型是Int的函数     (Int) => Int
     val intToInt: (Int) => Int = f1(10)
 
+    def minusxy(x: Int) = (y: Int) => x – y
+    //minusxy 他会返回一个匿名函数 (y: Int) => x – y
+    //匿名函数，他使用了一个外部的变量 x
+    //f函数就是闭包.
+    val f = minusxy(20)
+    println("f(1)=" + f(1))
+    println("f(2)=" + f(2))
+
+
     */
 
     // TODO 将函数作为参数传递给另外一个函数,需要采用特殊的声明方式
@@ -116,6 +125,16 @@ object Scala05_FunctionHell {
     }
 
     println(f4(f5)) // 15
+
+    // 1) map(plus(_)) 中的plus(_) 就是将plus这个函数当做一个参数传给了map，_这里代表从集合中遍历出来的一个元素。
+    // 2) plus(_) 这里也可以写成 plus 表示对 Array(1,2,3,4) 遍历，将每次遍历的元素传给plus的 x
+    // 3) 进行 3 + x 运算后，返回新的Int ，并加入到新的集合 result1中
+    // 4) def map[B, That](f: A => B) 的声明中的 f: A => B 一个函数
+    def plus(x: Int) = 3 + x
+
+    val result1 = Array(1, 2, 3, 4).map(plus(_))
+    println(result1.mkString(","))
+
     */
 
     // TODO 使用匿名函数改善代码
